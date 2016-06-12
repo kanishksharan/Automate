@@ -1,0 +1,31 @@
+# Using sys.exit(). To come out of a prog. "Break" only works within loops.
+
+import sys
+a = str(input ())
+if a == 'Kanishk':
+    sys.exit()
+    print("We were suppose to exit now\n")
+else :
+    print ( "The name was %s"%a)
+
+
+# Guessing Game
+
+import random
+ri = random.randint(0,51)
+
+while True:
+
+    try:
+        ui = int(input("Enter any integer to play a guess game:\n "))
+    except Exception as e:
+        print("You entered a non integer value")
+    if ri < ui:
+            print("Guess a bit Lower")
+
+    elif ri > ui:
+            print("Guess a bit Higher")
+
+    else:
+            print("Bingo !!! The number was indeed %d"%(ri))
+            break
