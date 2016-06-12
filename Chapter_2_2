@@ -1,0 +1,18 @@
+# Guess only 7 times
+import random
+
+ri = random.randint(1,20)
+print("I am thinking of a number between 1 and 20 \n")
+print("You only get 7 chances to guess\n")
+
+for turns in range(0,7):
+    try:
+        ui = int(input())
+    except Exception as e:
+        print("You entered a non integer value")
+    if ui > ri:
+        print("Guess lower than %d \n"%ui)
+    elif ui < ri:
+        print("Guess higher than %d \n"%ui)
+    else:
+        print("BINGO !!! Your guess of %d was correct and you got it in the %dth attempt \n"%(ri,turns))
