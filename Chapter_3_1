@@ -1,0 +1,8 @@
+# Palindrome or not ?
+print("Input the 1st string \n")
+str1 = str(input())
+
+if str1[::-1] == str1:
+    print("The string %s is a palindrome"%(str1))
+else:
+    print("The string %s is not a palindrome"%(str1))
