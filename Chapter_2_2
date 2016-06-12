@@ -16,3 +16,4 @@ for turns in range(0,7):
         print("Guess higher than %d \n"%ui)
     else:
         print("BINGO !!! Your guess of %d was correct and you got it in the %dth attempt \n"%(ri,turns))
+        break
