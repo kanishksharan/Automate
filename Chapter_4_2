@@ -1,5 +1,12 @@
 # Reverse sorting
+# By default "A" is listed before or comes beofre "a"
+# This behavior can be changed
+# using "key"
 
 a = [1,2,3,4,5,6,7,8,9,0]
 a.sort(reverse = True)
+print(a)
+
+a = ["K","a","n","i","s","h","k"]
+a.sort(key = str.lower) # a.sort(key = str.upper)
 print(a)
