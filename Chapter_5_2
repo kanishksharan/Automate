@@ -1,0 +1,19 @@
+# Count of items in a dict()
+
+message = 'kanishk mala mayank atul'
+counts = {}
+
+for chars in message:
+    counts.setdefault(chars,0)
+    counts[chars] = counts[chars] +1
+print(counts)
+
+# Method 2
+message = 'kanishk mala mayank atul'
+d= {x:message.count(x) for x in message}
+print(d)
+
+# method 3
+import collections
+counts = collections.Counter("kanishk mala mayank atul")
+print(counts)
