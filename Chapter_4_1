@@ -1,20 +1,18 @@
 # Listing out the indexes in the list()
 
-# We ar here trying to count the List index
-
 def listing():
-	l = []
-	while input != "q" or "Q":
-		name = str(input("Enter the text for the " + str(len(k)) +"th index: \n"  ))
-		if name == "Q" or "q":
-			break
-		l = l.append(name)
-	# Now print out the names of the listing
-	print("The names are as follows: \n")
-	for i in len(l):
-		print(l.index(i),"\n")
-	print("End of list")
+    l = []
+    while (True):
+        print("Enter the text for the " + str(len(l)) + "th index: \n")
+        name = input()
 
-
+        if name == "q" or name == "Q":
+            break
+        l.append(name)
+    # Now print out the names of the listing
+    print("The names are as follows: \n")
+    for names in l:
+        print(names, "\n")
+    print("End of list")
 
 listing()
