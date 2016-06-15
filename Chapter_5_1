@@ -20,3 +20,11 @@ def bday():
             print ("birthday database updated :)")
 
 bday()
+
+
+# -----------------------how to update the "value" for the existing "key" in a dictionary---------------------------
+
+d = {"Kanishk":"April 12","Mala":"Feb 09","Atul":"Jun 01","Mayank":"Nov 07"}
+d.update({"Kanishk":"Apr 12"}) # updating via a fancy update
+d["Atul"] = "Jan 20" # or updating in a logic based way
+print(d)
