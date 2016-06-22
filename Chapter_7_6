@@ -1,0 +1,15 @@
+# Matching one or more. At least once with "+"
+
+def tele_sort(listed):
+    import re
+
+    txt = re.compile (r"(011-)+\d\d\d\d\d\d\d\d")
+    for number in listed:
+        mo3 = txt.search (number)
+        if mo3 == None:
+            pass
+        else:
+            print (mo3.group())
+
+l = ["011-21625241","011-25183627","022-46372947","040-16263947"]
+tele_sort(l)
