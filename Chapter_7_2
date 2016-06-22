@@ -6,4 +6,5 @@ mo = phoneNumRegex.search('My number is 415-555-4242.')
 print('Phone number found: ' + mo.group())
 
 # re.compile() give the pattern to match
-# search() for within the passed string, for the provided pattern
+# search() Pass the string that should contain the expected pattern, for the provided pattern
+# group() Will match the actual matched text
