@@ -1,0 +1,9 @@
+# Searching using Regex
+
+import re
+phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+mo = phoneNumRegex.search('My number is 415-555-4242.')
+print('Phone number found: ' + mo.group())
+
+# re.compile() give the pattern to match
+# search() for within the passed string, for the provided pattern
