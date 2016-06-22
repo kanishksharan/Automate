@@ -1,0 +1,32 @@
+# matching multiple texts with pipe "|"
+# The pipe will retun the firs occurrence of any of the matched texts
+# Regex is cse sensitive
+import re
+
+# Enter what to match
+hero = re.compile (r"Batman|Tina Fey")
+
+# Now define the matched object
+mo = hero.search("batman, Robin and Tina Fey")
+print (mo.group())
+
+
+# Second variation
+import re
+
+hero = re.compile (r"Bat(Glass|Cup|Hood|Mask|Mobile|Copter|Bat)")
+mo = hero.search (" Ohhh My god !!! That BatMobile just lost a wheel....")
+print (mo.group())
+print (mo.group(1))
+
+# Third variation
+# Optional matching with text preceding the "?"
+
+import re
+
+hero = re.compile (r"Bat(wo)?man") # Now "wo" is optional
+mo = hero.search ("Ohh my god !!! There goes the Batman !!!")
+print (mo.group())
+
+mo2 = hero.search("There she goes....the Batwoman")
+print (mo2.group())
