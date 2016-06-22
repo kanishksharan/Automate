@@ -1,0 +1,5 @@
+import re
+
+re_phn = re.compile(r"(\(\d\d\d\)) (\d\d\d-\d\d\d\d)")
+str = re_phn.search("My cell phone number is (991) 056-6844")
+print (str.group())
