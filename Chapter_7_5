@@ -1,0 +1,11 @@
+# Using * Matching Zero or More with "*"
+# Here (wo) is being tested, 0 times, then one or more times
+# Even if "wo" appears 0 or 1 or more than one times, the output will be shown
+
+import re
+
+txt = re.compile (r"Bat(wo)*")
+mo = txt.search ("The Adventures of Batman")
+print(mo.group())
+mo2 = txt.search ("The adventures of Batwowowowowowman and Robin")
+print (mo2.group())
