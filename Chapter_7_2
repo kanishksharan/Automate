@@ -8,3 +8,4 @@ print('Phone number found: ' + mo.group())
 # re.compile() give the pattern to match
 # search() Pass the string that should contain the expected pattern, for the provided pattern
 # group() Will match the actual matched text
+# Always use raw string. Ex: re.compile(r'pattern')
