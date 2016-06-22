@@ -1,0 +1,10 @@
+import re
+# Here, (Ha){3} matches 'HaHaHa' but not 'Ha'. Since it doesn’t match 'Ha',
+# search() returns None.
+
+txt = re.compile (r"(Ha){3}")
+mo = txt.search ("HaHaHa")
+print (mo.group())
+
+mo2 = txt.search ("Ha")
+print (mo2 == None)
