@@ -21,7 +21,12 @@ print (mo.group(1))
 
 # Third variation
 # Optional matching with text preceding the "?"
-
+"""
+The (wo)? part of the regular expression means that the pattern wo is
+an optional group. The regex will match text that has zero instances or
+one instance of wo in it. This is why the regex matches both 'Batwoman' and
+'Batman'.
+"""
 import re
 
 hero = re.compile (r"Bat(wo)?man") # Now "wo" is optional
