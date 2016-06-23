@@ -1,0 +1,29 @@
+"""
+You can also use the caret symbol (^) at the start of a regex to indicate that
+a match must occur at the beginning of the searched text. Likewise, you can
+put a dollar sign ($) at the end of the regex to indicate the string must end
+with this regex pattern. And you can use the ^ and $ together to indicate
+that the entire string must match the regex.
+"""
+
+def directory_search (listed):
+    import re
+
+    txt = re.compile (r"^011-+\d\d\d\d\d\d\d\d")
+
+    for numbers in listed:
+        mo = txt.findall (numbers)
+        print (mo)
+
+
+# Now this code shows the list of numbers that end with zero
+
+def ending_zero (lists):
+    import re
+    txt2 = re.compile (r"\d\d\d-+\d\d\d\d\d\d\d0$")
+
+    for numbers in lists:
+        mo1 = txt2.findall (numbers)
+        print (mo1)
+
+        
