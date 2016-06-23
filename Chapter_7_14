@@ -1,0 +1,21 @@
+"""
+Case-Insensitive Matching
+Normally, regular expressions match text with the exact casing you specify.
+
+But sometimes you care only about matching the letters without worrying
+whether they’re uppercase or lowercase. To make your regex case-insensitive,
+you can pass re.IGNORECASE or re.I as a second argument to re.compile().
+Enter the following into the interactive shell:
+"""
+
+import re
+
+robocop = re.compile(r'robocop', re.I)
+mo = robocop.search('RoboCop is part man, part machine, all cop.')
+print (mo.group())
+
+mo1 = robocop.search('ROBOCOP protects the innocent.')
+print (mo1.group())
+
+mo2 = robocop.search('Al, why does your programming book talk about robocop so much?')
+print (mo2.group())
