@@ -1,0 +1,35 @@
+"""
+The . (or dot) character in a regular expression is called a wildcard and will
+match any character except for a newline. For example, enter the following
+into the interactive shell:
+"""
+import re
+
+txt = re.compile (r".at")
+mo = txt.findall ('The cat in the hat sat on the flat mat that.')
+print (mo)# Note that "That" will give o/p = "hat" and not "that" because "." only matches one character.
+
+# To match multiple characters use ".*"
+nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
+mo = nameRegex.search('First Name: Kanishk Last Name: Sharan')
+print (mo.group(1))
+print (mo.group(2))
+
+"""
+The dot-star uses greedy mode: It will always try to match as much text as
+possible. To match any and all text in a nongreedy fashion, use the dot, star,
+and question mark (.*?). Like with curly brackets, the question mark tells
+Python to match in a nongreedy way.
+Enter the following into the interactive shell to see the difference
+between the greedy and nongreedy versions:
+"""
+nongreedyRegex = re.compile(r'<.*?>')
+mo = nongreedyRegex.findall('<To serve man> for dinner.>')
+print (mo)
+
+greedyRegex = re.compile(r'<.*>')
+mo2 = greedyRegex.findall('<To serve man> for dinner.>')
+print (mo2)
+
+
+
