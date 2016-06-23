@@ -26,4 +26,16 @@ def ending_zero (lists):
         mo1 = txt2.findall (numbers)
         print (mo1)
 
-        
+"""
+The r'^\d+$' regular expression string matches strings that both begin
+and end with one or more numeric characters. Enter the following into the
+interactive shell:
+"""
+def beg_end (lists):
+     import re
+     txt3 = re.compile (r"\d+0$") # begins with any number and ends with one or more zeroes.
+
+     for numbers in lists:
+         mo2 = txt3.findall (numbers)
+         print (mo2)
+         
