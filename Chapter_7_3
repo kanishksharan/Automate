@@ -1,3 +1,9 @@
+"""
+Parentheses have a special meaning in regular expressions, but what do
+you do if you need to match a parenthesis in your text? For instance, maybe
+the phone numbers you are trying to match have the area code set in parentheses.
+In this case, you need to escape the ( and ) characters with a backslash.
+"""
 import re
 
 re_phn = re.compile(r"(\(\d\d\d\)) (\d\d\d-\d\d\d\d)")
