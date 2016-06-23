@@ -1,0 +1,17 @@
+"""
+Matching Newlines with the Dot Character
+The dot-star will match everything except a newline. By passing re.DOTALL as
+the second argument to re.compile(), you can make the dot character match
+all characters, including the newline character.
+Enter the following into the interactive shell:
+"""
+
+import re
+
+noNewlineRegex = re.compile('.*')
+mo = noNewlineRegex.search('Serve the public trust.\nProtect the innocent.\nUphold the law.')
+print (mo.group())
+
+newlineRegex = re.compile('.*', re.DOTALL)# This will consider newlines as well
+mo2 = newlineRegex.search('Serve the public trust.\nProtect the innocent. \nUphold the law.')
+print (mo2.group())
