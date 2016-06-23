@@ -1,0 +1,17 @@
+
+
+def checkPassword(text):
+    import re
+
+    capReg = re.compile(r'.*[A-Z].*')
+    lowerReg = re.compile(r'.*[a-z].*')
+    digitReg = re.compile(r'.*\d.*')
+    splReg = re.compile(r'.*[!_@#$^&*()-+=?].*')
+
+    if capReg.search(text) and lowerReg.search(text) and digitReg.search(text) and splReg.search(text):
+        print ("Safe Password")
+    else:
+        print ("Weak Password")
+
+str = "Kookaburra12"
+checkPassword(str)
