@@ -1,5 +1,16 @@
 # Searching using Regex
 
+"""
+Say you want to separate the area code from the rest of the phone number.
+Adding parentheses will create groups in the regex: (\d\d\d)-(\d\d\d-\d\d\d\d).
+Then you can use the group() match object method to grab the matching
+text from just one group.
+The first set of parentheses in a regex string will be group 1. The second
+set will be group 2. By passing the integer 1 or 2 to the group() match
+object method, you can grab different parts of the matched text. Passing 0
+or nothing to the group() method will return the entire matched text.
+"""
+
 import re
 phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
 mo = phoneNumRegex.search('My number is 415-555-4242.')
