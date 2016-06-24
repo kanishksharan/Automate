@@ -1,0 +1,22 @@
+"""
+On Windows, paths are written using backslashes (\) as the separator
+between folder names. OS X and Linux, however, use the forward slash (/)
+as their path separator. If you want your programs to work on all operating
+systems, you will have to write your Python scripts to handle both cases.
+Fortunately, this is simple to do with the os.path.join() function. If you
+pass it the string values of individual file and folder names in your path,
+os.path.join() will return a string with a file path using the correct path
+separators.
+"""
+
+import os
+os.path.join('usr', 'bin', 'spam')
+
+# Another Variation
+
+import os
+
+l = ["list_indexing.py","os_path.py","os_path_1.py"]
+for files in l :
+  paths = os.path.join ("/home/kanishk/Desktop/python_lab/automate",files)
+  print (paths)
