@@ -1,0 +1,28 @@
+"""
+Finding File Sizes and Folder Contents
+Once you have ways of handling file paths, you can then start gathering
+information about specific files and folders. The os.path module provides
+functions for finding the size of a file in bytes and the files and folders
+inside a given folder.
+• Calling os.path.getsize(path) will return the size in bytes of the file in
+the path argument.
+• Calling os.listdir(path) will return a list of filename strings for each file
+in the path argument. (Note that this function is in the os module, not
+os.path.)
+Here’s what I get when I try these functions in the interactive shell:
+"""
+print (os.path.getsize('C:\\Program Files (x86)\\Rise of Nations_extended\\patriots.exe'))
+#o/p = 2316800 bytes
+
+print (os.listdir('C:\\Program Files (x86)\\Rise of Nations_extended'))
+#o/p = ['ai', 'art', 'avutil-ttv-51.dll', 'balancerules.txt', 'bestimt.txt', 'BHGVidCardConfig.txt', 'bhg_game_studios1M.wmv', 'bighuge.txt', 'changelog', 'conquest', 'conquestmotd.txt', 'counterchart.txt', 'credits', 'crossedo.cur', 'cur033_c.cur', 'cur048_c.cur', 'cur054_c.cur', 'cur0_mai.cur', 'cur1_gat.cur', 'cur2_pri.cur', 'cur3_spy.cur', 'cur4_cro.cur', 'cur5_att.cur', 'cursor15.cur', 'cursor16.cur', 'cursor17.cur', 'cursor18.cur', 'cursor19.cur', 'cursor2.cur', 'cursor20.cur', 'cursor21.cur', 'cursor22.cur', 'cursor23.cur', 'cursor24.cur', 'cursor25.cur', 'cursor26.cur', 'cursor27.cur', 'cursor28.cur', 'cursor29.cur', 'cursor3.cur', 'cursor30.cur', 'cursor31.cur', 'cursor32.cur', 'cursor33.cur', 'cursor34.cur', 'cursor35.cur', 'cursor36.cur', 'cursor37.cur', 'cursor38.cur', 'cursor39.cur', 'cursor40.cur', 'cursor41.cur', 'cursor42.cur', 'cursor43.cur', 'cursor44.cur', 'cursor45.cur', 'cursor46.cur', 'cursor47.cur', 'cursor48.cur', 'cursor49.cur', 'cursor5.cur', 'cursor50.cur', 'cursor51.cur', 'cursor52.cur', 'cursor54.cur', 'cursor55.cur', 'cursor56.cur', 'cursor57.cur', 'cursor58.cur', 'cursor6.cur', 'cursor60.cur', 'cursor61.cur', 'cursor62.cur', 'cursor63.cur', 'cursor65.cur', 'cursor66.cur', 'cursor67.cur', 'cursor7.cur', 'cursor8.cur', 'cursor9.cur', 'd3d8xstub.dll', 'd3dcompiler_46.dll', 'd3dgl.dll', 'Data', 'dbghelp.dll', 'dpnl.dll', 'dssl.dll', 'Eulaxp1.dll', 'eulaxp1.rtf', 'game.txt', 'graphics.txt', 'icon.ico', 'icon1.ico', 'iconold.ico', 'interface.txt', 'labels.txt', 'launcher_res', 'libmfxsw32.dll', 'libmp3lame-ttv.dll', 'mapstyles', 'masks.txt', 'motd.txt', 'ms_game_studios_1M.wmv', 'obsoletescriptfuncs.txt', 'patchbld.cfg', 'patchw32.dll', 'patriots.exe', 'PidGenx.dll', 'pp_unicows.dll', 'rise xml.spp', 'rise.exe', 'Ron.s14', 'rtp32cb.dll', 'rules.dat', 'saveobjects.txt', 'sbl', 'scenario', 'shaders', 'SIGNED_EXE_FOR_SHIP', 'skybox_intro_1440.wmv', 'skybox_intro_1920.wmv', 'soundlist.txt', 'sounds', 'soundtypes.txt', 'srcsrv.dll', 'StatTracking', 'SteamAPIUpdater.dll', 'SteamNetLib.dll', 'steam_api.dll', 'steam_appid.txt', 'swresample-ttv-0.dll', 'symsrv.dll', 'taunts.txt', 'taunt_categories.txt', 'terrain art', 'tribes', 'twitchsdk_32_Debug.dll', 'twitchsdk_32_release.dll', 'unicows.dll', 'unins000.dat', 'unins000.exe', 'UpdateDLLWrapper.dll', 'update_exclude_file.txt', 'update_exclude_file_trial.txt', 'wmstubber.dll', '_CommonRedist']
+
+# Very Good Program
+
+import os
+
+total_size = 0
+
+for files in os.listdir("C:\\Program Files (x86)\\Rise of Nations_extended"):
+    total_size = total_size + os.path.getsize(os.path.join("C:\\Program Files (x86)\\Rise of Nations_extended",files))
+print (total_size)
