@@ -1,0 +1,36 @@
+"""
+Saving Variables with the pprint.pformat() Function
+Recall from “Pretty Printing” on page 111 that the pprint.pprint() function
+will “pretty print” the contents of a list or dictionary to the screen,
+while the pprint.pformat() function will return this same text as a string
+instead of printing it. Not only is this string formatted to be easy to read,
+but it is also syntactically correct Python code. Say you have a dictionary
+stored in a variable and you want to save this variable and its contents for
+future use. Using pprint.pformat() will give you a string that you can write
+to .py file. This file will be your very own module that you can import whenever
+you want to use the variable stored in it.
+For example, enter the following into the interactive shell:
+"""
+import pprint
+cats = [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]
+pprint.pformat(cats)
+#o/p = "[{'desc': 'chubby', 'name': 'Zophie'}, {'desc': 'fluffy', 'name': 'Pooka'}]"
+fileObj = open('myCats.py', 'w')
+fileObj.write('cats = ' + pprint.pformat(cats) + '\n')
+fileObj.close()
+
+"""
+Here, we import pprint to let us use pprint.pformat(). We have a list of
+dictionaries, stored in a variable cats. To keep the list in cats available even
+after we close the shell, we use pprint.pformat() to return it as a string. Once
+we have the data in cats as a string, it’s easy to write the string to a file, which
+we’ll call myCats.py.
+"""
+
+import myCats
+print (myCats.cats)
+#o/p= [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]
+print (myCats.cats[0])
+# O/P = {'name': 'Zophie', 'desc': 'chubby'}
+print (myCats.cats[0]['name'])
+# o/p = 'Zophie'
