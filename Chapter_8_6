@@ -1,0 +1,57 @@
+"""
+Saving Variables with the shelve Module
+You can save variables in your Python programs to binary shelf files using
+the shelve module. This way, your program can restore data to variables
+from the hard drive. The shelve module will let you add Save and Open
+features to your program. For example, if you ran a program and entered
+some configuration settings, you could save those settings to a shelf file and
+then have the program load them the next time it is run.
+Enter the following into the interactive shell:
+
+Here, our shelf
+value is stored in shelfFile. We create a list cats and write shelfFile['cats'] =
+cats to store the list in shelfFile as a value associated with the key 'cats'
+(like in a dictionary). Then we call close() on shelfFile.
+"""
+import shelve
+shelfFile = shelve.open('mydata')
+cats = ['Zophie', 'Pooka', 'Simon']
+shelfFile['cats'] = cats
+shelfFile.close()
+
+"""
+After running the previous code on Windows, you will see three new files
+in the current working directory: mydata.bak, mydata.dat, and mydata.dir. On
+OS X, only a single mydata.db file will be created.
+These binary files contain the data you stored in your shelf. The format
+of these binary files is not important; you only need to know what the shelve
+module does, not how it does it. The module frees you from worrying about
+how to store your program’s data to a file.
+Your programs can use the shelve module to later reopen and retrieve
+the data from these shelf files. Shelf values don’t have to be opened in read
+or write mode—they can do both once opened. Enter the following into the
+interactive shell:
+"""
+
+import shelve
+shelfFile = shelve.open('mydata')
+print (type(shelfFile))
+# o/p = <class 'shelve.DbfilenameShelf'>
+print (shelfFile['cats'])
+# o/p = ['Zophie', 'Pooka', 'Simon']
+shelfFile.close()
+
+"""
+Just like dictionaries, shelf values have keys() and values() methods that
+will return list-like values of the keys and values in the shelf. Since these
+methods return list-like values instead of true lists, you should pass them
+to the list() function to get them in list form. Enter the following into the
+interactive shell:
+"""
+shelfFile = shelve.open('mydata')
+
+print (list(shelfFile.keys()))
+# o/p = ['cats']
+print (list(shelfFile.values()))
+#o/p = [['Zophie', 'Pooka', 'Simon']]
+shelfFile.close()
