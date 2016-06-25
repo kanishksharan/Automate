@@ -1,0 +1,61 @@
+"""
+Handling Absolute and Relative Paths
+The os.path module provides functions for returning the absolute path of a
+relative path and for checking whether a given path is an absolute path.
+• Calling os.path.abspath(path) will return a string of the absolute path
+of the argument. This is an easy way to convert a relative path into an
+absolute one.
+• Calling os.path.isabs(path) will return True if the argument is an absolute
+path and False if it is a relative path.
+• Calling os.path.relpath(path, start) will return a string of a relative path
+from the start path to path. If start is not provided, the current working
+directory is used as the start path.
+"""
+
+#os.path.abspath()
+print (os.path.abspath("."))
+
+print (os.path.abspath('.\\chapter_8.py'))
+#o/p = C:\pyprogs\untitled\daily_workout\chapter_8.py
+
+#os.path.isabs()
+print (os.path.isabs("."))
+
+#os.path.relpath()
+print (os.path.relpath(".","C:\\")) #o/p = pyprogs\untitled\daily_workout
+print (os.path.relpath("C:\\pyprogs\\untitled\\daily_workout\\chapter_8.py","C:\\")) #  pyprogs\untitled\daily_workout\chapter_8.py
+
+"""
+C:\Windows\System32\calc.exe
+Dir name = 'C:\Windows\System32\' 
+Base name = 'calc.exe'
+
+Calling os.path.dirname(path) will return a string of everything that comes
+before the last slash in the path argument. Calling os.path.basename(path) will
+return a string of everything that comes after the last slash in the path argument.
+"""
+print (os.path.dirname("C:\\Program Files (x86)\\Rise of Nations_extended\\patriots.exe"))
+#o/p = C:\Program Files (x86)\Rise of Nations_extended
+
+print (os.path.basename("C:\\Program Files (x86)\\Rise of Nations_extended\\patriots.exe"))
+#o/p = "patriots.exe"
+
+"""
+If you need a path’s dir name and base name together, you can just call
+os.path.split() to get a tuple value with these two strings, like so:
+"""
+import os
+file_path = "C:\\Program Files (x86)\\Rise of Nations_extended\\patriots.exe"
+print (os.path.split(file_path))
+
+#o/p = ('C:\\Program Files (x86)\\Rise of Nations_extended', 'patriots.exe')
+
+#os.path.sep()
+"""
+The split() string method will work to return a list of each part of the
+path. It will work on any operating system if you pass it os.path.sep.
+"""
+print (file_path.split(os.path.sep))
+#o/p = ['C:', 'Program Files (x86)', 'Rise of Nations_extended', 'patriots.exe']
+
+
