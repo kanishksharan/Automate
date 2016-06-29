@@ -1,0 +1,32 @@
+"""
+Scan all the ".txt" files from the directory and print out any specific regex pattern from those files.
+"""
+
+import re
+import sys
+import os
+
+# try to open every file that ends with .txt
+
+os.chdir ("/home/kanishk/Desktop/python_lab/automate")
+
+number_files_scanned = 0
+files_scanned = []
+
+for file in os.listdir():
+	if file[-4:len(file)] == ".txt":
+
+		open_file = open (file,"r")
+		lines_read = open_file.readlines ()
+		str = " ".join(lines_read)
+
+		search_pattern = re.compile (r'[0-9]')
+		mo = search_pattern.findall (str)
+		print ("From file %s: "%(file),"\n",mo)
+
+		open_file.close()
+		number_files_scanned += 1
+		files_scanned.append(file)
+
+print ("The list of files scanned: %s"%(files_scanned))
+print ("Total number of files scanned %d"%(number_files_scanned))
