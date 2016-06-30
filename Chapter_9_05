@@ -1,0 +1,27 @@
+"""
+Compressing Files with the zipfile Module
+You may be familiar with ZIP files (with the .zip file extension), which
+can hold the compressed contents of many other files. Compressing a file
+reduces its size, which is useful when transferring it over the Internet.
+"""
+
+"""
+Reading ZIP Files
+To read the contents of a ZIP file, first you must create a ZipFile object
+(note the capital letters Z and F). ZipFile objects are conceptually similar
+to the File objects you saw returned by the open() function in the previous
+chapter: They are values through which the program interacts with the file.
+To create
+a ZipFile object, call the zipfile.ZipFile() function, passing it a
+string of the .zip file’s filename. Note that zipfile is the name of the Python
+module, and ZipFile() is the name of the function.
+"""
+os.chdir ("C:\\Users\\kanishk\\Desktop\\Oracle_11g\\Pragim")
+examplezip = zipfile.ZipFile ("Pragim.zip")
+examplezip.namelist()
+
+f_info = examplezip.getinfo("scr_9.png")
+f_info.file_size
+f_info.compress_size
+
+examplezip.close()
