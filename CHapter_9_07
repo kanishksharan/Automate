@@ -1,0 +1,22 @@
+"""
+Creating and Adding to ZIP Files
+To create your own compressed ZIP files, you must open the ZipFile object
+in write mode by passing 'w' as the second argument. (This is similar to
+opening a text file in write mode by passing 'w' to the open() function.)
+When you pass a path to the write() method of a ZipFile object, Python
+will compress the file at that path and add it into the ZIP file. The write()
+method’s first argument is a string of the filename to add. The second argument
+is the compression type parameter, which tells the computer what algorithm
+it should use to compress the files; you can always just set this value to
+zipfile.ZIP_DEFLATED. (This specifies the deflate compression algorithm, which
+works well on all types of data.)
+"""
+
+import zipfile
+import os
+
+os.chdir ("C:\\Users\\kanishk\\Desktop\\Oracle_11g\\Pragim")
+# The zip destination can be other than pwd also, like in the line below
+zipme = zipfile.ZipFile ("C:\\Users\\kanishk\\Desktop\\code_zipped.zip","w") # Name the new zip file, which is about to be created
+zipme.write (".\\extracted",compress_type=zipfile.ZIP_DEFLATED) # Pass the item to be zipped
+zipme.close()
