@@ -1,0 +1,15 @@
+import re
+
+datePattern = re.compile(r"""^(.*?) # all text before the date
+((0|1)?\d)- # one or two digits for the month
+((0|1|2|3)?\d)- # one or two digits for the day
+((19|20)\d\d) # four digits for the year
+(.*?)$ # all text after the date
+ """, re.VERBOSE)
+
+mo = datePattern.search ("Jeez I was born on a very hot april evening, 04-12-1990 to be precise.")
+print (mo.group(1),1)
+print (mo.group(2),2)
+print (mo.group(4),4)
+print (mo.group(6),6)
+print (mo.group(8),8)
