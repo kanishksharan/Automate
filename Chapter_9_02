@@ -1,0 +1,33 @@
+"""
+Calling shutil.move(source, destination) will move the file or folder at the path
+source to the path destination and will return a string of the absolute path of
+the new location.
+If destination points to a folder, the source file gets moved into destination
+and keeps its current filename.
+"""
+"""
+Assuming a folder named eggs already exists in the C:\ directory, this
+shutil.move() calls says, “Move C:\bacon.txt into the folder C:\eggs.”
+If there had been a bacon.txt file already in C:\eggs, it would have been
+overwritten. Since it’s easy to accidentally overwrite files in this way, you
+should take some care when using move().
+"""
+shutil.move ("C:\\Users\\kanishk\\Desktop\\Oracle_11g\\Pragim\\Reports","C:\\Users\\kanishk\\Desktop\\code_created")
+#O/P = 'C:\\Users\\kanishk\\Desktop\\code_created\\Reports'
+
+"""
+The destination path can also specify a filename. In the following
+example,
+the source file is moved and renamed.
+"""
+shutil.move('C:\\bacon.txt', 'C:\\eggs\\new_bacon.txt')
+# O/P = 'C:\\eggs\\new_bacon.txt'
+
+"""
+In the below mentioned example, move() can’t find a folder named eggs in the C:\ directory and so
+assumes that destination must be specifying a filename, not a folder. So the
+bacon.txt text file is renamed to eggs (a text file without the .txt file extension)—
+probably not what you wanted!
+"""
+shutil.move('C:\\bacon.txt', 'C:\\eggs')
+# O/P = 'C:\\eggs'
