@@ -1,0 +1,23 @@
+"""
+Walking a Directory Tree
+Say you want to rename every file in some folder and also every file in every
+subfolder of that folder. That is, you want to walk through the directory tree,
+touching each file as you go. Writing a program to do this could get tricky;
+fortunately, Python provides a function to handle this process for you.
+
+Here is an example program that uses the os.walk()
+"""
+import os
+
+os.chdir("C:\\Users\\kanishk\\Desktop\\Oracle_11g\\Pragim")
+
+for folders, subfolders, files in os.walk("C:\\Users\\kanishk\\Desktop\\Oracle_11g\\Pragim"):
+    print ("The current folder: %s"%(folders))
+
+    for subfolder in subfolders:
+        print ("The subfolders in the Folder %s are: %s"%(folders,subfolder))
+
+    for file in files:
+        print ("The Files in the Folder %s are: %s"%(folders,file))
+    print ("\n")
+
