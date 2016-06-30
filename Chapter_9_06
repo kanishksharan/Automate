@@ -1,0 +1,30 @@
+"""
+The extractall() method for ZipFile objects extracts all the files and folders
+from a ZIP file into the current working directory.
+
+After running this code, the contents of example.zip will be extracted
+to C:\. Optionally, you can pass a folder name to extractall() to have it
+extract the files into a folder other than the current working directory.
+
+If the folder passed to the extractall() method does not exist, it will be created.
+"""
+import os
+import zipfile
+ext_me = zipfile.ZipFile (".\\Pragim.zip")
+ext_me.extractall (".\\extracted") # a new folder will be created if not already exists. This does not happen with "copy, move or rename"
+ext_me.close()
+
+"""
+The extract() method for ZipFile objects will extract a single file from
+the ZIP file. Continue the interactive shell example:
+
+Optionally, you can pass a second argument to
+extract() to extract the file into a folder other than the current working
+directory. If this second argument is a folder that doesn’t yet exist, Python
+will create the folder.
+"""
+exampleZip.extract('spam.txt')
+#O/P = 'C:\\spam.txt'
+exampleZip.extract('spam.txt', 'C:\\some\\new\\folders') # with additional para , i.e destination folder path
+#O/P = 'C:\\some\\new\\folders\\spam.txt'
+exampleZip.close()
