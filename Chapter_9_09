@@ -1,0 +1,42 @@
+"""
+The code for this program will be placed into a function named backupToZip().
+This will make it easy to copy and paste the function into other Python programs
+that need this functionality. At the end of the program, the function
+will be called to perform the backup. Make your program look like this:
+"""
+
+
+
+
+
+def backup_me (folder):
+    import os, zipfile
+    folder = os.path.abspath(folder) # make sure folder is absolute
+    # what files already exist.
+    number = 1
+    while True:
+        zipfilename = os.path.basename(folder)+"_"+str(number)+".zip"
+        if not os.path.exists(zipfilename):
+            break
+        number += 1
+
+        # Create a zipfile
+    print ("Creating %s"%(zipfilename))
+    backupzip = zipfile.ZipFile (zipfilename,"w")
+
+        # walk the dir
+    for foldername, subfolders, files in os.walk(folder):
+        print ("Adding files in %s directory"%(foldername))
+        # zip current folder
+        backupzip.write (foldername)
+
+            # Zip all the files in this dir
+    for file in files:
+        newbase = os.path.basename(folder)+"_"
+        if file.startswith(newbase) and file.endswith(".zip"):
+            continue # Dont zip the already zip files in that dir
+            backupzip.write (os.path.join(foldername,file))
+    backupzip.close()
+    print ("Done.")
+
+backup_me("C:\\School\\Books\\Algos")
