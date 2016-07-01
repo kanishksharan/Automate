@@ -1,0 +1,36 @@
+"""
+Write a program that finds all files with a given prefix, such as spam001.txt,
+spam002.txt, and so on, in a single folder and locates any gaps in the numbering
+(such as if there is a spam001.txt and spam003.txt but no spam002.txt).
+Have the program rename all the later files to close this gap.
+"""
+import os
+import shutil
+
+os.chdir ("/Users/Kanishk/Desktop/test_1")
+
+for folders, subfolders, files in os.walk("/Users/Kanishk/Desktop/test_1"):
+
+    files.sort()
+    length = len(files)
+    counter = length -1
+
+    for file in files:
+
+        ending = file[-5]
+        checker = length - counter
+
+        if int(ending) == checker:
+
+            counter = counter - 1
+            folders = str (folders)
+            file = str (file)
+            print (os.path.join(folders,file))
+
+        else:
+
+            file = file[:5]+str(checker)+".txt"
+            counter = counter - 1
+            folders = str (folders)
+            file = str (file)
+            print (os.path.join(folders,file))
