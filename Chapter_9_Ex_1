@@ -1,0 +1,27 @@
+"""
+Write a program that walks through a folder tree and searches for files with
+a certain file extension (such as .pdf or .jpg). Copy these files from whatever
+location they are in to a new folder.
+"""
+
+import os
+import shutil
+
+os.chdir ("/Users/Kanishk/Desktop")
+
+for folders, subfolders, files in os.walk ("/Users/Kanishk/Desktop"):
+    print ("We are searching in the folder %s"%(folders))
+    """
+    for subf in subfolders:
+        print ("Current Subfolder %s/%s"%(folders,subf))
+    """
+    for file in files:
+
+            if file.endswith(".jpg"):
+                folders = str(folders)
+                #subf = str (subf)
+                file = str (file)
+                shutil.copy (os.path.join(folders,file),"/users/kanishk/desktop/bkp")
+                print (os.path.join(folders,file)," has been copied.\n")
+
+print ("Finished Copying files. Done")
