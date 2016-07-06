@@ -1,0 +1,33 @@
+"""
+The traceback is displayed by Python whenever a raised exception
+goes unhandled. But you can also obtain it as a string by calling
+traceback.format_exc(). This function is useful if you want the information
+from an exception’s traceback but also want an except statement to gracefully
+handle the exception. You will need to import Python’s traceback
+module
+before calling this function.
+For example, instead of crashing your program right when an exception
+occurs, you can write the traceback information to a log file and keep
+your program running. You can look at the log file later, when you’re ready
+to debug your program. Enter the following into the interactive shell:
+"""
+
+import traceback
+
+try:
+    raise Exception ("I am raising an Exception here now")
+except:
+    file1 = open ("py_err.txt","w")
+    file1.write (traceback.format_exc())
+    file1.close ()
+    print ("End of File")
+
+"""
+OUTPUT :
+
+Traceback (most recent call last):
+  File "/Users/Kanishk/PycharmProjects/Automate/chapter_10.py", line 4, in <module>
+    raise Exception ("I am raising an Exception here now")
+Exception: I am raising an Exception here now
+
+"""
